@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+    <h1>
+        Driver List
+        <br>
+    </h1>
+
+    <form action="" method="get">
+        {{ search_form|crispy }}
+        <input type="submit" class="btn btn-secondary" value="search">
+    </form>
+
+    <br>
+        <a href="{% url 'taxi:driver-create' %}" class="btn btn-primary">Create new driver</a>
+
+    <br>
+    <br>
+
+    {% if driver_list %}
+    <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>License number</th>
+      </tr>
+    {% for driver in driver_list %}
+      <tr>
+        <td>{{ driver.id }}</td>
+        <td><a href="{{ driver.get_absolute_url }}">{{ driver.username }} {% if user == driver %} (Me){% endif %}</a></td>
+        <td>{{ driver.first_name }}</td>
+        <td>{{ driver.last_name }}</td>
+        <td>{{ driver.license_number }}</td>
+      </tr>
+    {% endfor %}
+
+    </table>
+    {% else %}
+      <p>There are no drivers in the service.</p>
+    {% endif %}
+{% endblock %}

@@ -4,7 +4,7 @@ Django project for managing taxi service
 
 ## Check it out!
 
-(PASTE LINK)
+https://taxi-service-hector.herokuapp.com/
 
 ## Installation
 
@@ -27,4 +27,6 @@ python manage.py runserver  # start Django project
 
 ## Demo
 
-(PASTE PIC WITH DEMO)
+![img.png](img.png)
+![img_1.png](img_1.png)
+![img_2.png](img_2.png)

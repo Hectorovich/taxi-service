@@ -6,6 +6,9 @@ Django project for managing taxi service
 
 [Project on heroku](https://taxi-service-hector.herokuapp.com/)
 
+* username: check_user
+* password: user3546
+
 ## Installation
 
 Python3 must be already installed

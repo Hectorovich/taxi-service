@@ -13,9 +13,6 @@
     </form>
 
     <br>
-        <a href="{% url 'taxi:driver-create' %}" class="btn btn-primary">Create new driver</a>
-
-    <br>
     <br>
 
     {% if driver_list %}
@@ -38,6 +35,9 @@
     {% endfor %}
 
     </table>
+        <br>
+        <a href="{% url 'taxi:driver-create' %}" class="btn btn-success">Create new driver</a>
+
     {% else %}
       <p>There are no drivers in the service.</p>
     {% endif %}

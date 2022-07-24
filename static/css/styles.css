@@ -3,6 +3,6 @@ body {
     background-image: url("../images/taxi.png");
     background-size: auto auto;
     background-repeat: no-repeat;
-    background-position: center center;
+    background-position: center top;
     font-family: 'Cabin', sans-serif;
 }

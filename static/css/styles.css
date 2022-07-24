@@ -3,6 +3,6 @@ body {
     background-image: url("../images/taxi.png");
     background-size: auto auto;
     background-repeat: no-repeat;
-    background-position:  right 35% bottom 15%;
+    background-position:  right 35% bottom 100%;
     font-family: 'Cabin', sans-serif;
 }

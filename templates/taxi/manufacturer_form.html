@@ -8,7 +8,8 @@
         {% csrf_token %}
         {{ form|crispy }}
 
-        <input class="btn btn-primary" type="submit" value={{ object|yesno:"Update,Add" }}>
+        <input class="btn btn-success" type="submit" value={{ object|yesno:"Update,Add" }}>
+        <a href="{% url 'taxi:manufacturer-list' %}" class="btn btn-secondary">Cancel</a>
     </form>
 
 {% endblock %}

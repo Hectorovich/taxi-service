@@ -2,7 +2,7 @@ from django.contrib.auth import get_user_model
 from django.test import TestCase, Client
 from django.urls import reverse
 
-from taxi.models import Driver
+from taxi.models import Driver, Manufacturer
 
 
 class PublicDriverTests(TestCase):
@@ -58,3 +58,26 @@ class DriverSearchTests(TestCase):
         driver = Driver.objects.filter(username__icontains="t")
 
         self.assertEqual(list(response.context["driver_list"]), list(driver))
+
+
+class PrivateManufacturerFormatTest(TestCase):
+    def setUp(self) -> None:
+        self.user = get_user_model().objects.create_user(
+            "test",
+            "1234asdfg"
+        )
+        self.client.force_login(self.user)
+
+    def test_retrieve_manufacturer(self):
+        Manufacturer.objects.create(name="test", country="Texas")
+
+        res = self.client.get(reverse("taxi:manufacturer-list"))
+
+        manufacturers = Manufacturer.objects.all()
+
+        self.assertEqual(res.status_code, 200)
+        self.assertEqual(
+            list(res.context["manufacturer_list"]),
+            list(manufacturers)
+        )
+        self.assertTemplateUsed(res, "taxi/manufacturer_list.html")
